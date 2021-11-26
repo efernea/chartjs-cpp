@@ -219,9 +219,9 @@ private:
             << "  });"
             << "}\n"
             << "\nvar RandomColor = function() {"
-            << "var r = Math.floor(Math.random() * 160);\n"
-            << "var g = Math.floor(Math.random() * 160);\n"
-            << "var b = Math.floor(Math.random() * 160);\n"
+            << "var r = 50 + Math.floor(Math.random() * 150);\n"
+            << "var g = 50 + Math.floor(Math.random() * 150);\n"
+            << "var b = 50 + Math.floor(Math.random() * 150);\n"
             << " return \"rgb(\" + r + \",\" + g + \",\" + b + \")\";\n"
             << "}\n"
             << "</script>";
