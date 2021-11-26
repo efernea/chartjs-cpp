@@ -53,13 +53,6 @@ public:
               
     }
     
-    ~ChartJsCpp(){
-        if(m_writtenCharts > 0){
-            WritePlotEnd();
-        }
-        WriteFooter();
-    }
-
     /**
     * Add a new chart to the page and specify the label values.
     *
@@ -152,12 +145,23 @@ public:
         return *this;
     }
 
+    /**
+    * Insert custom html content (like titles, descriptions, notes, etc.) before, between or after the charts.
+    *
+    * \param html the HTML content
+    */
     ChartJsCpp& Html(const char* html) {
         m_html += html;
         return *this;
     }
 
-    private:
+    ~ChartJsCpp() {
+        if (m_writtenCharts > 0) {
+            WritePlotEnd();
+        }
+        WriteFooter();
+    }
+private:
 
     void WriteHtml() {
         if (!m_html.empty()) {
